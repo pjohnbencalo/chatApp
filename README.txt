@@ -6,5 +6,3 @@ Step 5: Go to terminal
 Step 6: Type npm i --save-dev nodemon
 Step 7: Type npm run devStart
 Step 8: Open login.html as live server
-
-Note: Use 1920 x 1080 display or zoom out if you have different display size.
