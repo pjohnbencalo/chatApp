@@ -4,35 +4,53 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login</title>
-    <script src="user.js"></script>
-    <link rel="stylesheet" href="index.css" />
+    <title>Chat App</title>
+    <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <form id="my-form" action="index.html">
-      <div class="form-control">
-        <input id="username" type="value" required="" />
-        <label>
-          <span style="transition-delay: 0ms">U</span
-          ><span style="transition-delay: 50ms">s</span
-          ><span style="transition-delay: 100ms">e</span
-          ><span style="transition-delay: 150ms">r</span
-          ><span style="transition-delay: 200ms">n</span
-          ><span style="transition-delay: 250ms">a</span
-          ><span style="transition-delay: 300ms">m</span
-          ><span style="transition-delay: 350ms">e</span>
-        </label>
-      </div>
-      <button type="submit">Join</button>
-    </form>
-    <div class="cube-loader">
-      <div class="cube-top"></div>
-      <div class="cube-wrapper">
-        <span style="--i: 0" class="cube-span"></span>
-        <span style="--i: 1" class="cube-span"></span>
-        <span style="--i: 2" class="cube-span"></span>
-        <span style="--i: 3" class="cube-span"></span>
+    <div class="container">
+      <div id="message-container"></div>
+      <form id="send-container">
+        <input type="text" id="message-input" />
+        <button type="submit" id="send-button">Send</button>
+      </form>
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/010/054/157/original/chat-bot-robot-avatar-in-circle-round-shape-isolated-on-white-background-stock-illustration-ai-technology-futuristic-helper-communication-conversation-concept-in-flat-style-vector.jpg"
+        alt="robot"
+      />
+      <p id="display-username"></p>
+    </div>
+    <div id="notification-box">
+      <span class="title">Notification</span>
+      <p id="notification-message"></p>
+      <div class="actions">
+        <button id="notification-close">Hide</button>
       </div>
     </div>
+    <div class="card">
+      <div class="face">
+        <p class="v-index">II</p>
+        <p class="h-index">II</p>
+        <div class="hand">
+          <div class="hand">
+            <div class="hour"></div>
+            <div class="minute"></div>
+            <div class="second"></div>
+          </div>
+        </div>
+      </div>
+      <p id="current-time"></p>
+    </div>
+    <div class="card-for-users">
+      <h1 id="online">ONLINE</h1>
+      <div id="user-list"></div>
+    </div>
   </body>
+  <script>
+    // Get name value from session storage
+    var name = sessionStorage.getItem("username");
+    document.getElementById("display-username").innerHTML = name;
+  </script>
 </html>
